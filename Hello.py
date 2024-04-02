@@ -24,27 +24,43 @@ def run():
         page_icon="👋",
     )
 
-    st.write("# Welcome! 👋")
+    st.write("# Welcome!")
 
     st.sidebar.success("Select a demo above.")
 
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+    st.markdown("""
+        I’m Walker 👋 I’m a machine learning engineer, mathematician, and Brazilian Jiu-Jitsu enthusiast. \
+        I'm currently a Master's Student in Data Science at the University of San Francisco, graduating in July 2025.
+  
+        **👈 Check out some recent projects of mine in the sidebar or scroll down for a ful list**
     """
     )
+
+    st.code("""
+        class about_me: 
+            def __init__(self,):
+                self.name = "walker hughes"
+                self.education = {
+                    "graduate": "ms in data science", 
+                    "undergrad": ["bs in computational math", 
+                                  "bs in economics"]
+                }
+                self.skills = {
+                    "python",
+                    "machine learning", 
+                    "statistics and causality",
+                    "brazilian portuguese"
+                }
+                self.hobbies = {
+                    "brazilian jiu-jitsu", 
+                    "recreational probability"
+                }
+                self.experience = {
+                    "data solutions consultant": "addepar, mountain view", 
+                    "data analyst": "cornerstone research, san francisco"
+                }
+        """,
+    language="python")
 
 
 if __name__ == "__main__":

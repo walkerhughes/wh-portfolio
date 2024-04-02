@@ -20,7 +20,7 @@ import streamlit as st
 from streamlit.hello.utils import show_code
 
 
-def animation_demo() -> None:
+def other_demo() -> None:
 
     # Interactive Streamlit elements, like these sliders, return their value.
     # This gives you an extremely simple interaction model.
@@ -70,15 +70,15 @@ def animation_demo() -> None:
     st.button("Re-run")
 
 
-st.set_page_config(page_title="Animation Demo", page_icon="📹")
-st.markdown("# Animation Demo")
-st.sidebar.header("Animation Demo")
+st.set_page_config(page_title="Other Demo", page_icon="📹")
+st.markdown("# Other Demo")
+st.sidebar.header("Other Demo")
 st.write(
     """This app shows how you can use Streamlit to build cool animations.
 It displays an animated fractal based on the the Julia Set. Use the slider
 to tune different parameters."""
 )
 
-animation_demo()
+other_demo()
 
-show_code(animation_demo)
+show_code(other_demo)

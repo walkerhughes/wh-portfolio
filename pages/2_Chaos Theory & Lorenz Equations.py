@@ -16,6 +16,7 @@ from urllib.error import URLError
 
 import pydeck as pdk
 import numpy as np
+import scipy 
 from scipy.integrate import odeint, solve_ivp
 import matplotlib.pyplot as plt 
 

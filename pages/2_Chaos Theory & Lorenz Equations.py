@@ -1,27 +1,7 @@
-# Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022)
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-from urllib.error import URLError
-
-import pydeck as pdk
 import numpy as np
-import scipy 
-from scipy.integrate import odeint, solve_ivp
+from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt 
-
 import streamlit as st
-from streamlit.hello.utils import show_code
 
 st.set_page_config(page_title="Lorenz Equations", page_icon=":collision:")
 st.markdown("#### Chaos Theory & Lorenz Equations")
@@ -29,7 +9,7 @@ st.sidebar.header("Chaos Theory & Lorenz Equations")
 
 st.write("A primary characteristic of chaotic systems is that small changes to the initial conditions \
          can result in large changes in the system's solution curves. Here I implement the Lorenz Equations \
-         to look at this behavior, using **scipy.integrate.solve_ivp** to do so.") 
+         to look at this behavior, using **scipy.integrate.solve_ivp** to do so The Lorenz Equations are") 
 
 st.latex("x_{t} = {\\sigma} (y - x)")
 st.latex("y_{t} = {\\rho} x - y - xz_{t}")
@@ -46,8 +26,7 @@ st.write("\t\t 2. For the $\\sigma$, $\\rho$, and $\\beta$ values, solve the sys
 
 st.write("**👈 Try some different $\\sigma$, $\\rho$, and $\\beta$ values to get started!**") 
 
-def lorenz() -> None: 
-    st.code("""
+st.code("""
             def lorenz(t, x, params):
                 \"""
                 Implements Lorenz equations:
@@ -67,6 +46,17 @@ def lorenz() -> None:
                 sigma, rho, beta = params
                 return np.array([sigma*(y-x), (rho*x)-y-(x*z), (x*y)-(beta*z)]))
             """, language="python") 
+    
+st.code("""
+            # initial values 
+            initial_vals = np.random.uniform(-15, 15, (3, ))  
+
+            # solve the ODE 
+            sol = solve_ivp(lorenz, (0, 40), y0 = initial_vals, t_eval = np.linspace(0, 40, 5000))     
+            x, y, z = sol.y[0], sol.y[1], sol.y[2] 
+    """, language="python")
+
+def lorenz() -> None: 
 
     sigma = st.sidebar.slider("Sigma", 7, 13, 10)
     rho = st.sidebar.slider("Rho", 25, 33, 28)
@@ -143,4 +133,11 @@ def lorenz() -> None:
     plt.legend() 
     st.pyplot(fig)
 
+st.write("It's pretty clear that the solutions we get don't converge to a single point in space, instead, they really do just swirl \
+         around these \'strange attractors\' like Lorenz observed. We can also see how different initial conditions passed into the \
+         IVP solver produce fairly different solutions even for the same values of $\\sigma$, $\\rho$, and $\\beta$, demonstrating \
+         the Lorenz Equations' chaotic nature.") 
+
 lorenz() 
+
+

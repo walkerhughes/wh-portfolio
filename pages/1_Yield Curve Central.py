@@ -21,7 +21,11 @@ df = pd.read_parquet("./data/yield_curve_historical_rates_MASTER.parquet")
 
 url = "https://github.com/walkerhughes/yieldcentral/tree/main"
 st.write('#### :wave: Welcome to Yield Curve Central!\n')
-st.write('##### Start exploring below or check out the [GitHub](%s)' % url)
+st.write('###### Start exploring below or check out the [GitHub](%s)' % url)
+
+vix_url = "http://vixcentral.com/"
+st.write("Inspired by [VixCentral.com](%s), Yield Curve Central is a one-stop solution for your analysis of US Treasury interest rates. Data is scraped daily directly \
+         from the US Treasury and processed for easy and robust analysis." % vix_url)
 
 st.write('The US Treasury yield curve plots the interest rates of US Government bonds of different tenures over time. Studying the yield curve can give \
          insights into the time-value of money and the level of perceived risk in the economy. The Federal Reserve Bank affects the interest rates seen \
@@ -29,14 +33,15 @@ st.write('The US Treasury yield curve plots the interest rates of US Government 
          interest in the economy. Since the Fed meets in 3-month intervals to determine short-term rates, their effect on the yield curve is \
          mostly felt in the yields tenured 3 months or less. Longer term yields are affected by another important factor called the \'term premium\'. \
          Directly measuring an interest rate\'s term premium can be tricky, but analyzing the yield curve and the spreads between yields of different tenures \
-         can help elucidate how the aggregate economy views the riskiness of debt.\n\n')
+         can help elucidate how the aggregate economy views the riskiness of debt.\n\n\n')
 
-st.write('##### :chart_with_upwards_trend: Pick a date to start plotting historical interest rates below')
+# st.write('##### :chart_with_upwards_trend: Pick a date to start plotting historical interest rates below')
 
+# :spiral_calendar_pad: Date
 ########################## Plotting On Date ##########################
 
 plot_date = st.date_input(
-  label = ':spiral_calendar_pad: Date', 
+  label = ':chart_with_upwards_trend: Pick a date to start plotting historical interest rates below', 
   max_value = today, 
   value = datetime.date(2024, 3, 28),
   format = "MM-DD-YYYY"

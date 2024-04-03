@@ -2,11 +2,16 @@ from openai import OpenAI
 from string import Template
 import streamlit as st
 
+st.set_page_config(
+    page_title = "Idiom.ai", 
+    page_icon=":speech_balloon:"
+)
+
+st.title(":speech_balloon: Idiom.ai")
+
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
     "[Need an OpenAI API key?](https://platform.openai.com/account/api-keys)"
-
-st.title("💬 Idiom.ai")
 
 welcome_message = """
     Welcome to Idiom.ai! Understanding figurative language is hard enough in your mother tongue, and even harder in a foreign language. \

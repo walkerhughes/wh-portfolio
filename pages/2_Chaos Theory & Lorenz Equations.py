@@ -51,7 +51,7 @@ st.code("""
             # initial values 
             initial_vals = np.random.uniform(-15, 15, (3, ))  
 
-            # solve the ODE 
+            # solve the ivp 
             sol = solve_ivp(lorenz, (0, 40), y0 = initial_vals, t_eval = np.linspace(0, 40, 5000))     
             x, y, z = sol.y[0], sol.y[1], sol.y[2] 
     """, language="python")

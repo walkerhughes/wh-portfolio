@@ -44,6 +44,7 @@ st.code("""
                 x, y, z = x[0], x[1], x[2]  
                 \"""
                 sigma, rho, beta = params
+                x, y, z = x[0], x[1], x[2]
                 return np.array([sigma*(y-x), (rho*x)-y-(x*z), (x*y)-(beta*z)]))
             """, language="python") 
     

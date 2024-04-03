@@ -1,7 +1,4 @@
 import streamlit as st
-from streamlit.logger import get_logger
-
-LOGGER = get_logger(__name__)
 
 def run():
     st.set_page_config(
@@ -10,8 +7,6 @@ def run():
     )
 
     st.write("# Welcome!")
-
-    # st.sidebar.success("Select a demo above.")
 
     st.markdown("""
         I'm Walker :wave: I'm a machine learning engineer, mathematician, and Brazilian Jiu-Jitsu enthusiast. \

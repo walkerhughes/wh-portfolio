@@ -35,9 +35,6 @@ st.write('The US Treasury yield curve plots the interest rates of US Government 
          Directly measuring an interest rate\'s term premium can be tricky, but analyzing the yield curve and the spreads between yields of different tenures \
          can help elucidate how the aggregate economy views the riskiness of debt.\n\n\n')
 
-# st.write('##### :chart_with_upwards_trend: Pick a date to start plotting historical interest rates below')
-
-# :spiral_calendar_pad: Date
 ########################## Plotting On Date ##########################
 
 plot_date = st.date_input(

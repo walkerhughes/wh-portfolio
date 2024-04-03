@@ -26,7 +26,7 @@ def run():
 
     st.write("# Welcome!")
 
-    st.sidebar.success("Select a demo above.")
+    # st.sidebar.success("Select a demo above.")
 
     st.markdown("""
         I’m Walker 👋 I’m a machine learning engineer, mathematician, and Brazilian Jiu-Jitsu enthusiast. \

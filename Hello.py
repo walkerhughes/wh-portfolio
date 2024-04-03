@@ -32,7 +32,7 @@ def run():
         I’m Walker 👋 I’m a machine learning engineer, mathematician, and Brazilian Jiu-Jitsu enthusiast. \
         I'm currently a Master's Student in Data Science at the University of San Francisco, graduating in July 2025.
   
-        **👈 Check out some recent projects of mine in the sidebar or scroll down for a ful list**
+        **👈 Check out some recent projects of mine in the sidebar or scroll down for a full list**
     """
     )
 

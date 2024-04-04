@@ -26,5 +26,3 @@ A: <option a>
 B: <option b>
 
 C: <option c>
-
-Let's play!

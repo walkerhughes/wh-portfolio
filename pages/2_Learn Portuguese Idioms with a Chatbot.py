@@ -30,7 +30,7 @@ languages = {
     'German': "🇩🇪"
 }
 
-user_lang_option = st.selectbox('Pick a language to get started', 
+user_lang_option = st.selectbox('Pick a language to get started :point_down:', 
                                     ('Portuguese 🇧🇷', 
                                      'Spanish 🇲🇽', 
                                      'French 🇫🇷', 
@@ -85,6 +85,5 @@ def chat(user_lang_option, OPENAI_API_KEY) -> None:
 
         get_assistant_response(client, st.session_state, assistant_avatar)
  
-
 if OPENAI_API_KEY is not None: 
     chat(user_lang_option, OPENAI_API_KEY) 

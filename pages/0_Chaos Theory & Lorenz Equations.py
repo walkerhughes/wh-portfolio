@@ -91,7 +91,7 @@ def lorenz() -> None:
     x, y, z = sol.y[0], sol.y[1], sol.y[2] 
 
     # init plot figure 
-    fig = plt.figure(figsize = (7, 7))
+    fig = plt.figure(figsize = (6, 6))
     ax = fig.add_subplot(111, projection = '3d')
 
     ax.set_title(f"Lorenz Solutions for σ={sigma}, ρ={rho}, β={beta}") 
@@ -103,11 +103,10 @@ def lorenz() -> None:
     line3d, = plt.plot(x, y, z, lw = .55) 
     st.pyplot(fig)
 
-
     ################### three initial conditions ###################
 
     # init plot figure 
-    fig = plt.figure(figsize = (7, 7)) 
+    fig = plt.figure(figsize = (6, 6)) 
     ax = fig.add_subplot(111, projection = '3d')
 
     # add titles and axes 

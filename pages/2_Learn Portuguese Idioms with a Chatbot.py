@@ -67,13 +67,7 @@ def chat(user_lang_option, OPENAI_API_KEY) -> None:
             "role": "user",
             "content": game_prompt
         }] 
-        # get_assistant_response(client, st.session_state, assistant_avatar)
-        st.session_state.messages = [{
-            "role": "assistant",
-            "content": assistant_prompt
-        }]
-        with st.chat_message("assistant", avatar = user_avatar): 
-            st.markdown(assistant_prompt)
+        get_assistant_response(client, st.session_state, assistant_avatar)
 
     for message in st.session_state.messages[1: ]: 
         with st.chat_message(message["role"], avatar = avatars[message["role"]]): 

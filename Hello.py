@@ -43,7 +43,7 @@ def run():
     language="python")
 
     st.write("#### Generative AI")
-    st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "http://localhost:8501/Learn_Portuguese_Idioms_with_a_Chatbot")
+    st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "https://walkerhughes.streamlit.app/Idiom.ai:_Learn_Portuguese_Idioms_with_GPT_3.5")
     st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
 
     st.write("#### Machine Learning")

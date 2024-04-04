@@ -47,7 +47,7 @@ def run():
     st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
 
     st.write("#### Machine Learning")
-    st.write(":arrow_right: [Comparing different models' sensitivities to distributional drift post-training](%s)" % "https://github.com/walkerhughes")
+    st.write(":arrow_right: [Comparing different models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Model_Sensitivity_to_Distributional_Drift")
 
     st.write("#### Topics in Math")
     st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_&_Lorenz_Equations")

@@ -12,7 +12,7 @@ def run():
         I'm Walker :wave: I'm a machine learning engineer, mathematician, and Brazilian Jiu-Jitsu enthusiast. \
         I'm currently a Master's Student in Data Science at the University of San Francisco, graduating in July 2025.
   
-        **:point_left: Check out some recent projects of mine in the sidebar or scroll down for a full list :point_down:**
+        **:point_left: Check out some interactive projects in the sidebar or scroll down for a full list :point_down:**
     """
     )
 
@@ -41,6 +41,16 @@ def run():
                 }
         """,
     language="python")
+
+    st.write("#### Generative AI")
+    st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "http://localhost:8501/Learn_Portuguese_Idioms_with_a_Chatbot")
+    st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
+
+    st.write("#### Machine Learning")
+    st.write(":arrow_right: [Comparing different ML models' sensitivities to distributional drift](%s)" % "https://github.com/walkerhughes")
+
+    st.write("#### Topics in Math")
+    st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_&_Lorenz_Equations")
 
 
 if __name__ == "__main__":

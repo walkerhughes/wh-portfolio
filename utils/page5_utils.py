@@ -81,5 +81,4 @@ class YoutubeVideoRAG:
         chain = LLMChain(llm=self.chat, prompt=chat_prompt)
         response = chain.run(question=query, docs=docs_page_content).replace("\n", " ")
         self.response = response
-        # self.print_response(response = self.response)
         return self.response

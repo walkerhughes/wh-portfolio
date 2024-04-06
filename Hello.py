@@ -45,6 +45,7 @@ def run():
     st.write("#### Generative AI")
     st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "https://walkerhughes.streamlit.app/Idiom.ai:_Learn_Portuguese_Idioms_with_GPT_3.5")
     st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
+    st.write(":arrow_right: [Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://github.com/walkerhughes")
 
     st.write("#### Machine Learning")
     st.write(":arrow_right: [Comparing different models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Model_Sensitivity_to_Distributional_Drift")

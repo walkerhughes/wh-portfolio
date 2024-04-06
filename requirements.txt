@@ -6,3 +6,5 @@ streamlit
 scipy
 matplotlib
 openai
+langchain 
+langchain_community 

@@ -8,3 +8,4 @@ matplotlib
 openai
 langchain 
 langchain_community 
+langchain_openai

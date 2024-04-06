@@ -1,15 +1,13 @@
 from langchain_community.document_loaders import YoutubeLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.vectorstores import FAISS
-from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain.prompts.chat import (
     ChatPromptTemplate,
     SystemMessagePromptTemplate,
     HumanMessagePromptTemplate
 )
-import textwrap
 
 class YoutubeVideoRAG:
     """
@@ -60,9 +58,6 @@ class YoutubeVideoRAG:
 
         db = FAISS.from_documents(self.final_docs, self.embeddings)
         return db
-
-    def print_response(self, response: str):
-        print(textwrap.fill(response, width=75))
 
     def answer_query(self, query: str, k: int = 4):
 

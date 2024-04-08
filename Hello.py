@@ -45,10 +45,11 @@ def run():
     st.write("#### Generative AI")
     st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "https://walkerhughes.streamlit.app/Idiom.ai:_Learn_Portuguese_Idioms_with_GPT_3.5")
     st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
-    st.write(":arrow_right: [Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://github.com/walkerhughes")
+    st.write(":arrow_right: [Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://walkerhughes.streamlit.app/CryptoPunks")
 
     st.write("#### Machine Learning")
-    st.write(":arrow_right: [Comparing different models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Model_Sensitivity_to_Distributional_Drift")
+    st.write(":arrow_right: [Comparing different models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Common_Model_Sensitivity_to_Distributional_Drift")
+    st.write(":arrow_right: [A case for residualizing your regression data more often](%s)" % "https://walkerhughes.streamlit.app/")
 
     st.write("#### Topics in Math")
     st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_&_Lorenz_Equations")

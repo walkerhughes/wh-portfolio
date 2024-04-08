@@ -11,5 +11,4 @@ langchain_community
 langchain_openai
 joblib
 scikit-learn
-faiss-gpu
 faiss-cpu

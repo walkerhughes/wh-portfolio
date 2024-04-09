@@ -69,7 +69,7 @@ def chat(user_lang_option, OPENAI_API_KEY) -> None:
         }] 
         get_assistant_response(client, st.session_state, assistant_avatar)
 
-    for message in st.session_state.messages[2: ]: 
+    for message in st.session_state.messages[1: ]: 
         with st.chat_message(message["role"], avatar = avatars[message["role"]]): 
             st.markdown(message["content"])
 

@@ -1,7 +1,7 @@
 from openai import OpenAI
 from string import Template
 import streamlit as st
-from utils.page2_utils import get_assistant_response
+from utils.page2_utils import IdiomGame
 
 st.set_page_config(
     page_title = "Idiom.ai", 
@@ -13,6 +13,7 @@ st.title(":speech_balloon: Idiom.ai")
 with st.sidebar:
     OPENAI_API_KEY = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password", value = None)
     "[Need an OpenAI API key?](https://platform.openai.com/account/api-keys)"
+
 
 welcome_message = """
     Welcome to Idiom.ai! Understanding figurative language is hard enough in your mother tongue, and even harder in a foreign language. \
@@ -38,52 +39,65 @@ user_lang_option = st.selectbox('Pick a language to get started :point_down:',
                                      'German 🇩🇪')
                                     )
 
-def chat(user_lang_option, OPENAI_API_KEY) -> None: 
+user_avatar = "🇺🇸"
+test_language = user_lang_option.split(" ")[0]
+assistant_avatar = languages[test_language]
 
-    user_avatar = "🇺🇸"
-    test_language = user_lang_option.split(" ")[0]
-    assistant_avatar = languages[test_language]
+with st.chat_message("assistant", avatar = assistant_avatar): 
+    st.write(open("./llm_prompts/page_2/initial_assistant_prompt.txt").read())
+    
 
-    avatars = {
-        "user": user_avatar, 
-        "assistant": assistant_avatar
-    }
+def chat(user_lang_option, OPENAI_API_KEY): 
+
+    client = OpenAI(
+        api_key = OPENAI_API_KEY
+    ) 
+
+    game = IdiomGame(
+        client = client, 
+        session_state = st.session_state, 
+        language = test_language, 
+        user_avatar = user_avatar, 
+        assistant_avatar = assistant_avatar
+    )
 
     if "openai_model" not in st.session_state: 
         st.session_state["openai_model"] = "gpt-3.5-turbo"
 
-    with open("./llm_prompts/page_2/initial_game_prompt.txt", "r") as infile: 
-        game_prompt_template = Template(infile.read())
-        game_prompt = game_prompt_template.substitute(language = test_language) 
+    with st.chat_message("assistant", avatar = assistant_avatar): 
+        st.write(game.display_user_ready_check())
 
-    with open("./llm_prompts/page_2/initial_assistant_prompt.txt", "r") as infile: 
-        assistant_prompt_template = Template(infile.read())
-        assistant_prompt = assistant_prompt_template.substitute(language = test_language) 
+        button1_clicked = st.button(f"Let's get learning {game.language} idioms!")
 
-    client = OpenAI(api_key = OPENAI_API_KEY) 
+        if button1_clicked and ("messages" not in st.session_state):
+            # append the assistant messages so far and get a question 
+            # using the get_json method 
+            st.session_state.messages = [{
+                "role": "user",
+                "content": game.display_user_game_prompt()
+            }]
+            game.ready_to_play = True
 
-    if "messages" not in st.session_state: 
-        st.session_state.messages = [{
-            "role": "user",
-            "content": game_prompt
-        }] 
-        get_assistant_response(client, st.session_state, assistant_avatar)
+    if game.ready_to_play: 
+        game.get_assistant_response()
+        for message in st.session_state.messages[1: ]: 
+            with st.chat_message(message["role"], avatar = game.avatars[message["role"]]): 
+                st.markdown(message["content"])
 
-    for message in st.session_state.messages[1: ]: 
-        with st.chat_message(message["role"], avatar = avatars[message["role"]]): 
-            st.markdown(message["content"])
+        if prompt := st.chat_input("Type your response here"): 
 
-    if prompt := st.chat_input("Type your response here"): 
+            with st.chat_message("user", avatar = user_avatar): 
+                st.markdown(prompt)
 
-        with st.chat_message("user", avatar = user_avatar): 
-            st.markdown(prompt)
+            st.session_state.messages.append({
+                "role": "user",
+                "content": prompt
+            })
 
-        st.session_state.messages.append({
-            "role": "user",
-            "content": prompt
-        })
+            game.get_assistant_response()
 
-        get_assistant_response(client, st.session_state, assistant_avatar)
- 
+
+
 if OPENAI_API_KEY is not None: 
     chat(user_lang_option, OPENAI_API_KEY) 
+    

@@ -52,7 +52,7 @@ def run():
     st.write(":arrow_right: [A case for residualizing your regression data more often](%s)" % "https://walkerhughes.streamlit.app/")
 
     st.write("#### Topics in Math")
-    st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_&_Lorenz_Equations")
+    st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_and_Lorenz_Equations")
 
 
 if __name__ == "__main__":

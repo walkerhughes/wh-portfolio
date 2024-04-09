@@ -1,52 +1,35 @@
 from openai import OpenAI
 from string import Template
 import streamlit as st
+import json
 
 message_template = {"role": None, "content": None}
 
-def format_message(session_state_message): 
-    return {"role": session_state_message["role"], "content": session_state_message["content"]}
-
-def get_current_chat(client, session_state): 
-    current_chat = client.chat.completions.create(
-        model = session_state["openai_model"],
-        messages = [format_message(message) for message in session_state.messages],
-        stream = True
-    )
-    return current_chat
-
-def get_assistant_response(client, session_state, assistant_avatar): 
-
-    with st.chat_message("assistant", avatar = assistant_avatar): 
-
-        assistant_message = st.empty() 
-        assistant_response = "" 
-
-        current_chat = get_current_chat(client, session_state)
-
-        for response in current_chat: 
-            chunk = response.choices[0].delta.content
-            if chunk is not None: 
-                assistant_response += response.choices[0].delta.content 
-            assistant_message.markdown(assistant_response + " ")
-        assistant_message.markdown(assistant_response)
-
-    session_state.messages.append({
-        "role": "assistant",
-        "content": assistant_response
-    })
-
-
-
 class IdiomGame:
-    def __init__(self, client, session_state, language, assistant_avatar):
+    def __init__(self, client, session_state, language, user_avatar, assistant_avatar):
+        
         self.__dict__.update(locals())
+        self.score = 0
+        self.ready_to_play = False
+        self.used_idioms = set()
+
         self.message_template = {
             "role": None,
             "content": None
         }
 
-        self.score = 0
+        self.avatars = {
+            "user": user_avatar, 
+            "assistant": assistant_avatar,
+            "system": assistant_avatar
+        }
+
+        with open("./llm_prompts/page_2/json_prompt.txt", "r") as infile: 
+            json_prompt = Template(infile.read()) 
+            self.json_prompt = json_prompt.substitute(
+                language = self.language, 
+                used_idioms = self.used_idioms
+            )
 
     def display_welcome_message(self):
         return """
@@ -59,7 +42,7 @@ class IdiomGame:
         """
     
     def display_user_ready_check(self):
-        return f"You've chosen {self.language}. Ready to get started?"
+        return f"You picked **{self.language}**. Feel free to pick a different language from the dropdown menu, otherwise click the button below to let me know you're ready for your first challenge."
 
     def format_message(self, session_state_message): 
         return {"role": session_state_message["role"], "content": session_state_message["content"]}
@@ -67,37 +50,25 @@ class IdiomGame:
     def get_current_chat(self): 
         current_chat = self.client.chat.completions.create(
             model = self.session_state["openai_model"],
-            messages = [format_message(message) for message in self.session_state.messages],
+            messages = [self.format_message(message) for message in self.session_state.messages],
             stream = True
         )
         return current_chat
-
-    def get_assistant_response(self): 
-
-        with st.chat_message("assistant", avatar = self.assistant_avatar): 
-
-            assistant_message = st.empty() 
-            assistant_response = "" 
-
-            current_chat = self.get_current_chat(self.client, self.session_state)
-
-            for response in current_chat: 
-                chunk = response.choices[0].delta.content
-                if chunk is not None: 
-                    assistant_response += response.choices[0].delta.content 
-                assistant_message.markdown(assistant_response + " ")
-            assistant_message.markdown(assistant_response)
-
-        self.session_state.messages.append({
-            "role": "assistant",
-            "content": assistant_response
-        })
+    
+    def get_question_json(self): 
+        chat = self.client.chat.completions.create(
+            model = self.session_state["openai_model"],
+            messages = [{
+                "role": "user", 
+                "content": self.json_prompt
+            }],
+        )
+        llm_response = json.loads(chat.choices[0].message.content)
+        self.used_idioms.add(llm_response["idiom"])
+        return llm_response
 
     def update_score(self, correct):
         if correct:
             self.score += 1
         else:
             self.score += 0.5  
-    
-    def play(self):
-        pass

@@ -1,8 +1,9 @@
-Welcome to Idiom.ai! 👋 Get ready for some awesome language practice. 
+Welcome to Idiom.ai! 👋 Get ready for some awesome language practice.
 
 **Here's how the game works**: 
 1. Pick a language from the dropdown menu, and I'll give you a common idiom or figure of speech in that language along with an example of it being used in a sentence.
 2. You'll get to choose its correct meaning from a list of 3 options. If you get it right first try, that's 1 point!  
-3. No worries if you don't get it right on the first try. You can still get a halp point for getting it right on the second guess. 
+3. No worries if you don't get it right on the first try. You can still get a half point for getting it right on the second guess. 
+4. Don't get it by the second guess? I'll give a brief explanation of the correct answer before moving on.
 
-You've chosen ${language}. Ready to play? 
+👈 Enter your OpenAI API Key in the left-hand panel to get started!

@@ -1,0 +1,10 @@
+Return a json object in the following format:
+{
+"idiom": <${language} idiom here>,
+"context": <a list of two ${language} sentences using the idiom to give context for how it is typically used>,
+"multiple_choice": <a list of three options for the idiom's meaning in English here, but not literal translations of the idiom to English>,
+"index": <the numeric index of the correct option for the meaning of the idiom from the list with key "multiple_choice">
+}
+
+Do not use an idiom that is already in the following Python set: 
+used_idioms = ${used_idioms}

@@ -22,22 +22,25 @@ def run():
                 self.name = "walker hughes"
                 self.education = {
                     "graduate": "ms in data science", 
-                    "undergrad": ["bs in computational math", 
-                                  "bs in economics"]
+                    "undergrad": [
+                        "bs in computational math", 
+                        "bs in economics", 
+                        "minor in portuguese"
+                    ]
                 }
                 self.skills = {
-                    "python",
-                    "machine learning", 
-                    "statistics and causality",
-                    "brazilian portuguese"
-                }
-                self.hobbies = {
-                    "brazilian jiu-jitsu", 
-                    "recreational probability"
+                    "python", 
+                    "machine learning",
+                    "statistics and econometrics",
+                    "data structures & algorithms"
                 }
                 self.experience = {
                     "data solutions consultant": "addepar, mountain view", 
                     "data analyst": "cornerstone research, san francisco"
+                }
+                self.hobbies = {
+                    "brazilian jiu-jitsu", 
+                    "recreational probability"
                 }
         """,
     language="python")
@@ -45,11 +48,12 @@ def run():
     st.write("#### Generative AI")
     st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "https://walkerhughes.streamlit.app/Idiom.ai:_Learn_Portuguese_Idioms_with_GPT_3.5")
     st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
-    st.write(":arrow_right: [Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://walkerhughes.streamlit.app/CryptoPunks")
+    st.write(":arrow_right: [Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://walkerhughes.streamlit.app/Generating_New_CryptoPunks_with_Kernel_Density_Estimation")
 
     st.write("#### Machine Learning")
-    st.write(":arrow_right: [Comparing different models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Common_Model_Sensitivity_to_Distributional_Drift")
+    st.write(":arrow_right: [Comparing different regression models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Common_Model_Sensitivity_to_Distributional_Drift")
     st.write(":arrow_right: [A case for residualizing your regression data more often](%s)" % "https://walkerhughes.streamlit.app/")
+    st.write(":arrow_right: [Hidden Markov Models: How to Perform Classification on Latent Variables](%s)" % "https://walkerhughes.streamlit.app/")
 
     st.write("#### Topics in Math")
     st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_and_Lorenz_Equations")

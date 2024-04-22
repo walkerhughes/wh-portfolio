@@ -41,29 +41,21 @@ def run():
                         "minor in portuguese studies"
                     ]
                 }
-                self.writing = {
-                    "wealthofnations.substack.com"
-                }
         """,
     language="python")
 
-    st.write("#### Generative AI")
-    st.write(":arrow_right: [Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "https://walkerhughes.streamlit.app/Idiom.ai:_Learn_Portuguese_Idioms_with_GPT_3.5")
-    st.write(":arrow_right: [LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
-    st.write(":arrow_right: [Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://walkerhughes.streamlit.app/Generating_New_CryptoPunks_with_Kernel_Density_Estimation")
+    st.write("#### Machine Learning & Generative AI")
+    st.write(":arrow_right: [[GitHub] LangChain RAG App for YouTube video Q&A](%s)" % "https://github.com/walkerhughes/rag_langchain/blob/main/RAG_langchain_model.ipynb")
+    st.write(":arrow_right: [[Streamlit App] Generating Original CryptoPunk-style NFTs with Kernel Density Estimators](%s)" % "https://walkerhughes.streamlit.app/Generating_New_CryptoPunks_with_Kernel_Density_Estimation")
+    st.write(":arrow_right: [[In the works] Idiom.ai: Chatbot game to learn foreign language expressions and figures of speech](%s)" % "https://walkerhughes.streamlit.app/Idiom.ai:_Learn_Portuguese_Idioms_with_GPT_3.5")
+    st.write(":arrow_right: [[In the works] Comparing different regression models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Common_Model_Sensitivity_to_Distributional_Drift")
 
-    st.write("#### Machine Learning")
-    st.write(":arrow_right: [Comparing different regression models' sensitivities to distributional drift post-training](%s)" % "https://walkerhughes.streamlit.app/Common_Model_Sensitivity_to_Distributional_Drift")
-    st.write(":arrow_right: [A case for residualizing your regression data more often](%s)" % "https://walkerhughes.streamlit.app/")
-    st.write(":arrow_right: [Hidden Markov Models: How to Perform Classification on Latent Variables](%s)" % "https://walkerhughes.streamlit.app/")
-
-    st.write("#### Topics in Math")
-    st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_and_Lorenz_Equations")
-    st.write(":arrow_right: [Estimating the Probability that Random Binary Matrices are Invertible with Monte Carlo Methods](%s)" % "https://github.com/walkerhughes/monte_carlo_matrix_invertability")
+    st.write("#### Topics in Applied Math")
+    st.write(":arrow_right: [[Streamlit App] Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_and_Lorenz_Equations")
+    st.write(":arrow_right: [[GitHub] Estimating the Probability that Random Binary Matrices are Invertible with Monte Carlo Methods](%s)" % "https://github.com/walkerhughes/monte_carlo_matrix_invertability")
 
     st.write("#### Implementing Research Papers")
-    st.write(":arrow_right: [U-Net Convolutional Neural Network for Biomedical Image Segmentation (Olaf Ronneberger, Philipp Fischer, and Thomas Brox, 2015)](%s)" % "https://github.com/walkerhughes/deep_learning/blob/main/cancer_detection.ipynb")
-
+    st.write(":arrow_right: [[GitHub] U-Net Convolutional Neural Network for Biomedical Image Segmentation (Olaf Ronneberger, Philipp Fischer, and Thomas Brox, 2015)](%s)" % "https://github.com/walkerhughes/deep_learning/blob/main/cancer_detection.ipynb")
 
 
 if __name__ == "__main__":

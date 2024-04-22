@@ -42,7 +42,7 @@ class IdiomGame:
         """
     
     def display_user_ready_check(self):
-        return f"You picked **{self.language}**. Feel free to pick a different language from the dropdown menu, otherwise click the button below to let me know you're ready for your first challenge."
+        return f"You picked **{self.language}**. Feel free to pick a different language from the dropdown menu, otherwise click the button below for your first challenge."
 
     def format_message(self, session_state_message): 
         return {"role": session_state_message["role"], "content": session_state_message["content"]}
@@ -66,9 +66,34 @@ class IdiomGame:
         llm_response = json.loads(chat.choices[0].message.content)
         self.used_idioms.add(llm_response["idiom"])
         return llm_response
+    
+    def format_question(self, question_json):
+        question = "Idiom: **{}**\n\nIn a sentence: {}\n\nAnswers:\n".format(
+            question_json["idiom"],
+            question_json["context"][0]
+        )
+        return question 
+
 
     def update_score(self, correct):
         if correct:
             self.score += 1
         else:
             self.score += 0.5  
+
+
+"""
+
+        col1, col2, col3 = st.columns(3)
+        button1_clicked = col1.button(question_json["multiple_choice"][0])
+        button2_clicked = col2.button(question_json["multiple_choice"][1])
+        button3_clicked = col3.button(question_json["multiple_choice"][2])
+
+        if button1_clicked:
+            st.write("Button 1 was clicked")
+        elif button2_clicked:
+            st.write("Button 2 was clicked")
+        elif button3_clicked:
+            st.write("Button 3 was clicked")
+
+"""

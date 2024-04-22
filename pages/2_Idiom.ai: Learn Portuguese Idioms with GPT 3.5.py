@@ -66,37 +66,45 @@ def chat(user_lang_option, OPENAI_API_KEY):
 
     with st.chat_message("assistant", avatar = assistant_avatar): 
         st.write(game.display_user_ready_check())
-
-        button1_clicked = st.button(f"Let's get learning {game.language} idioms!")
-
-        if button1_clicked and ("messages" not in st.session_state):
-            # append the assistant messages so far and get a question 
-            # using the get_json method 
+        game_play = st.button(f"Let's get learning {game.language} idioms!")
+        if game_play and ("messages" not in st.session_state):
+            question = game.get_question_json()
             st.session_state.messages = [{
-                "role": "user",
-                "content": game.display_user_game_prompt()
+                "role": "assistant",
+                "content": game.format_question(question)
             }]
             game.ready_to_play = True
 
     if game.ready_to_play: 
-        game.get_assistant_response()
-        for message in st.session_state.messages[1: ]: 
+        for message in st.session_state.messages: 
             with st.chat_message(message["role"], avatar = game.avatars[message["role"]]): 
                 st.markdown(message["content"])
+                user_response = False
+            
+                col1, col2, col3 = st.columns(3)
+                button1_clicked = col1.button(question["multiple_choice"][0], key = 7)
+                button2_clicked = col2.button(question["multiple_choice"][1], key = 1)
+                button3_clicked = col3.button(question["multiple_choice"][2], key = 2)
+                if button1_clicked and (question["index"] == 0):
+                    user_response = True
+                    st.write("Button 1 was clicked")
+                elif button2_clicked and (question["index"] == 1):
+                    user_response = True
+                    st.write("Button 2 was clicked")
+                elif button3_clicked and (question["index"] == 2):
+                    user_response = True
+                    st.write("Button 3 was clicked")
 
-        if prompt := st.chat_input("Type your response here"): 
 
+        if prompt := st.chat_input(""): 
+            """
             with st.chat_message("user", avatar = user_avatar): 
                 st.markdown(prompt)
-
+            """
             st.session_state.messages.append({
                 "role": "user",
                 "content": prompt
             })
-
-            game.get_assistant_response()
-
-
 
 if OPENAI_API_KEY is not None: 
     chat(user_lang_option, OPENAI_API_KEY) 

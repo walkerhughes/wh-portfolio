@@ -4,13 +4,14 @@ def run():
     st.set_page_config(
         page_title="Walker Hughes Portfolio",
         page_icon="👋",
+        layout="wide"
     )
 
     st.write("# Welcome!")
 
     st.markdown("""
         I'm Walker :wave: I'm a machine learning engineer, mathematician, and Brazilian Jiu-Jitsu enthusiast. \
-        I'm currently a Master's Student in Data Science at the University of San Francisco, graduating in July 2025.
+        I'm currently a Master's Student in Data Science at the University of San Francisco graduating in July 2025.
   
         **:point_left: Check out some interactive projects in the sidebar or scroll down for a full list :point_down:**
     """
@@ -20,27 +21,28 @@ def run():
         class about_me: 
             def __init__(self,):
                 self.name = "walker hughes"
-                self.education = {
-                    "graduate": "ms in data science", 
-                    "undergrad": [
-                        "bs in computational math", 
-                        "bs in economics", 
-                        "minor in portuguese"
-                    ]
-                }
                 self.skills = {
                     "python", 
                     "machine learning",
-                    "statistics and econometrics",
+                    "statistical modeling",
                     "data structures & algorithms"
                 }
                 self.experience = {
                     "data solutions consultant": "addepar, mountain view", 
                     "data analyst": "cornerstone research, san francisco"
                 }
-                self.hobbies = {
-                    "brazilian jiu-jitsu", 
-                    "recreational probability"
+                self.education = {
+                    "university of san francisco, 2025": [
+                        "ms in data science"
+                    ], 
+                    "brigham young university, 2021": [
+                        "bs in computational mathematics", 
+                        "bs in economics", 
+                        "minor in portuguese studies"
+                    ]
+                }
+                self.writing = {
+                    "wealthofnations.substack.com"
                 }
         """,
     language="python")
@@ -57,6 +59,11 @@ def run():
 
     st.write("#### Topics in Math")
     st.write(":arrow_right: [Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_and_Lorenz_Equations")
+    st.write(":arrow_right: [Estimating the Probability that Random Binary Matrices are Invertible with Monte Carlo Methods](%s)" % "https://github.com/walkerhughes/monte_carlo_matrix_invertability")
+
+    st.write("#### Implementing Research Papers")
+    st.write(":arrow_right: [U-Net Convolutional Neural Network for Biomedical Image Segmentation (Olaf Ronneberger, Philipp Fischer, and Thomas Brox, 2015)](%s)" % "https://github.com/walkerhughes/deep_learning/blob/main/cancer_detection.ipynb")
+
 
 
 if __name__ == "__main__":

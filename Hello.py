@@ -28,8 +28,10 @@ def run():
                     "data structures & algorithms"
                 }
                 self.experience = {
+                    "machine learning engineer": "we consulting llc, sf",
                     "data solutions consultant": "addepar, mountain view", 
-                    "data analyst": "cornerstone research, san francisco"
+                    "data analyst": "cornerstone research, san francisco",
+                    "machine learning researcher": "byu department of mathematics"
                 }
                 self.education = {
                     "university of san francisco, 2025": [

@@ -19,7 +19,7 @@ def run():
 
     st.code("""
         class about_me: 
-            def __init__(self,):
+            def __init__(self):
                 self.name = "walker hughes"
                 self.skills = {
                     "python", 
@@ -53,6 +53,7 @@ def run():
     st.write("#### Topics in Applied Math")
     st.write(":arrow_right: [[Streamlit App] Explore chaotic behavior in initial value problems with the Lorenz Equations](%s)" % "https://walkerhughes.streamlit.app/Chaos_Theory_and_Lorenz_Equations")
     st.write(":arrow_right: [[GitHub] Estimating the Probability that Random Binary Matrices are Invertible with Monte Carlo Methods](%s)" % "https://github.com/walkerhughes/monte_carlo_matrix_invertability")
+    st.write(":arrow_right: [[GitHub] Interior Point optimization methods and KKT conditions](%s)" % "https://github.com/walkerhughes/")
 
     st.write("#### Implementing Research Papers")
     st.write(":arrow_right: [[GitHub] U-Net Convolutional Neural Network for Biomedical Image Segmentation (Olaf Ronneberger, Philipp Fischer, and Thomas Brox, 2015)](%s)" % "https://github.com/walkerhughes/deep_learning/blob/main/cancer_detection.ipynb")

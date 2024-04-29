@@ -15,7 +15,7 @@ def run():
   
         **:point_left: Check out some interactive projects in the sidebar or scroll down for a full list :point_down:**
     """
-    )
+    ) 
 
     st.code("""
         class about_me: 

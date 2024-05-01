@@ -58,7 +58,7 @@ def run():
     st.write(":arrow_right: [[GitHub] Interior Point optimization methods and KKT conditions](%s)" % "https://github.com/walkerhughes/")
 
     st.write("#### Implementing Research Papers")
-    st.write(":arrow_right: [[GitHub] U-Net Convolutional Neural Network for Biomedical Image Segmentation (Olaf Ronneberger, Philipp Fischer, and Thomas Brox, 2015)](%s)" % "https://github.com/walkerhughes/deep_learning/blob/main/cancer_detection.ipynb")
+    st.write(":arrow_right: [[GitHub] U-Net Convolutional Neural Network for Biomedical Image Segmentation (Olaf Ronneberger, Philipp Fischer, and Thomas Brox, 2015)](%s)" % "https://github.com/walkerhughes/U-Net-Cancer-Detection")
 
 
 if __name__ == "__main__":
